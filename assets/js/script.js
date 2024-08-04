@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const restartButton = document.getElementById('restart-button');
     const backgroundMusic = document.getElementById('background-music');
     const collisionSound = document.getElementById('collision-sound');
+    const moveLeftButton = document.getElementById('move-left');
+    const moveRightButton = document.getElementById('move-right');
 
     let player = {
         speed: 5,
@@ -36,6 +38,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'ArrowLeft') player.moveLeft = false;
         if (e.key === 'ArrowRight') player.moveRight = false;
     });
+
+    moveLeftButton.addEventListener('mousedown', () => player.moveLeft = true);
+    moveLeftButton.addEventListener('mouseup', () => player.moveLeft = false);
+    moveRightButton.addEventListener('mousedown', () => player.moveRight = true);
+    moveRightButton.addEventListener('mouseup', () => player.moveRight = false);
 
     playButton.addEventListener('click', () => {
         if (!gameRunning) {
